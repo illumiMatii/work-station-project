@@ -1,0 +1,20 @@
+<div class="main">
+  <h1>{{ today | date: "longDate" }}</h1>
+  <div class="main__worktime">
+    <h2>Czas pracy</h2>
+    <select name="" id="" class="worktime__select">
+      <option class="select__option" hidden disabled selected value>
+        Wybierz zmianę
+      </option>
+      <option class="select__option" value="">od 7:30 do 15:30</option>
+      <option class="select__option" value="">od 8:30 do 16:30</option>
+      <option class="select__option" value="">Inne</option>
+    </select>
+    <div class="worktime__switch">
+      <input type="checkbox" id="switch" class="switch__input" />
+      <label for="switch" class="switch__label">Switch</label>
+      <span>Home Office</span>
+    </div>
+    <button class="worktime__proceed">Gotowe</button>
+  </div>
+</div>

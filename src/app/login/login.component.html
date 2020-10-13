@@ -1,19 +1,25 @@
-<div class="header">
-  <a routerLink="home">
-    <h1>workStation</h1>
-  </a>
-</div>
 <div class="main">
   <div class="main__form">
     <h1>Witaj!</h1>
     <p class="form__p1">Zaloguj się aby przejść do panelu pracownika.</p>
     <form class="form__login">
-      <input type="text" #username placeholder="Login" />
-      <input type="password" #password placeholder="Hasło" />
-      <button type="submit" class="login__button"
-        (click)="onCheckInputs(username.value, password.value, $event)">Zaloguj</button>
+      <input
+        type="text"
+        [(ngModel)]="username"
+        [ngModelOptions]="{ standalone: true }"
+        placeholder="Login"
+      />
+      <input
+        type="password"
+        [(ngModel)]="password"
+        [ngModelOptions]="{ standalone: true }"
+        placeholder="Hasło"
+      />
+      <button type="submit" class="login__button" (click)="checkLogin($event)">
+        Zaloguj
+      </button>
     </form>
-    <span class="error">{{errorStr}}</span>
+    <span class="error">{{ errorStr }}</span>
     <p class="form__p2">Zapomniałem hasła</p>
   </div>
 </div>

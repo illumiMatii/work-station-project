@@ -2,16 +2,35 @@
   <h1>{{ today | date: "longDate" }}</h1>
   <div class="main__worktime">
     <h2>Czas pracy</h2>
-    <select name="" id="" class="worktime__select">
-      <option class="select__option" hidden disabled selected value>
-        Wybierz zmianę
-      </option>
-      <option class="select__option" value="">od 7:30 do 15:30</option>
-      <option class="select__option" value="">od 8:30 do 16:30</option>
-      <option class="select__option" value="">Inne</option>
-    </select>
+    <div class="worktime__select">
+      <select (change)="onChange($event)" class="select__select">
+        <option class="select__option" hidden disabled selected value>
+          Wybierz zmianę
+        </option>
+        <option *ngFor="let choice of workChoices">
+          {{ choice }}
+        </option>
+      </select>
+    </div>
+    <div *ngIf="selectedOption === 'inne'" class="worktime__other">
+      <h3>Podaj godziny prac</h3>
+      <input #worktimeFrom type="text" placeholder="Od" />
+      <input #worktimeTo type="text" placeholder="Do" />
+      <button
+        class="other__proceed"
+        (click)="checkInputs(worktimeFrom.value, worktimeTo.value, $event)"
+      >
+        Dodaj godziny
+      </button>
+      <span class="error">{{ messageStr }}</span>
+    </div>
     <div class="worktime__switch">
-      <input type="checkbox" id="switch" class="switch__input" />
+      <input
+        type="checkbox"
+        id="switch"
+        class="switch__input"
+        (click)="isHomeOffice($event)"
+      />
       <label for="switch" class="switch__label">Switch</label>
       <span>Home Office</span>
     </div>

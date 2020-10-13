@@ -1,0 +1,117 @@
+.main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main > .main__container {
+  margin-top: 5%;
+  border: 1px solid #34495e;
+  padding: 2%;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.main__container > button {
+  margin-top: 10%;
+  background-color: #2ecc71;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  color: #ffffff;
+  font-size: 18px;
+  outline: none;
+  cursor: pointer;
+}
+
+.main__container > button:hover {
+  transition: 0.25s ease-in;
+  background-color: #27ae60;
+}
+
+.container__absence {
+  display: grid;
+  grid-template-areas: "select";
+  margin-top: 3%;
+  width: 60%;
+  border: 1px solid #34495e;
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+  font-size: 18px;
+  cursor: pointer;
+  line-height: 1.1;
+  background-color: #ffffff;
+  align-items: center;
+}
+
+.container__absence:after {
+  content: "";
+  width: 0.8em;
+  height: 0.5em;
+  background-color: #bdc3c7;
+  clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+  justify-self: end;
+}
+
+.container__absence > select {
+  outline: none;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+  user-select: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+select,
+.container__absence::after {
+  grid-area: select;
+}
+
+.container__other {
+  margin-top: 15%;
+}
+
+.container__other > input {
+  border: none;
+  background: transparent;
+  border-bottom: 2px solid #3498db;
+  outline: none;
+  font-size: 16px;
+}
+
+.container__date {
+  margin-top: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.date__input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.date__input > input,
+p {
+  margin-top: 10%;
+}
+
+.date__input > p {
+  margin-right: 2%;
+}

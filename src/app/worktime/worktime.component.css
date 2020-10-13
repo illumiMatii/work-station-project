@@ -21,16 +21,59 @@
 }
 
 .worktime__select {
-  margin-top: 20%;
+  display: grid;
+  grid-template-areas: "select";
+  margin-top: 10%;
+  width: 100%;
+  border: 1px solid #34495e;
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+  font-size: 18px;
+  cursor: pointer;
+  line-height: 1.1;
+  background-color: #ffffff;
+  background-image: linear-gradient(to top, #f9f9f9, #ffffff 33%);
+  align-items: center;
+}
+
+.worktime__select::after {
+  content: "";
+  width: 0.8em;
+  height: 0.5em;
+  background-color: #bdc3c7;
+  clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+  justify-self: end;
+}
+
+.worktime__select > .select__select {
   outline: none;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+  user-select: none;
+}
+
+.select__select::-ms-expand {
+  display: none;
+}
+
+.select__select,
+.worktime__select::after {
+  grid-area: select;
 }
 
 .worktime__switch {
   position: relative;
   display: flex;
   flex-direction: row;
-  margin-top: 100%;
-  margin-bottom: 60%;
+  margin-top: 80%;
+  margin-bottom: 20%;
 }
 
 .worktime__switch > span {
@@ -85,5 +128,53 @@
 }
 
 .switch__input:checked + .switch__label::after {
-  left: 22px;
+  left: 24px;
+}
+
+.worktime__proceed {
+  background-color: #2ecc71;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  color: #ffffff;
+  font-size: 18px;
+  outline: none;
+  cursor: pointer;
+}
+
+.worktime__proceed:hover {
+  transition: 0.25s;
+  background-color: #27ae60;
+}
+
+.worktime__other {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20%;
+}
+
+.worktime__other > input {
+  margin-top: 15%;
+  border: none;
+  background: transparent;
+  border-bottom: 2px solid #3498db;
+  outline: none;
+}
+
+.worktime__other > .other__proceed {
+  margin-top: 10%;
+  border: none;
+  background-color: #3498db;
+  color: #ffffff;
+  border-radius: 50px;
+  padding: 8px;
+  cursor: pointer;
+  outline: none;
+}
+
+.error {
+  color: #e74c3c;
+  margin-top: 5%;
 }

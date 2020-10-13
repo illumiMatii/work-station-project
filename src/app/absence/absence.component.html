@@ -1,0 +1,25 @@
+<div class="main">
+  <div class="main__container">
+    <h2>Dodaj nieobecność</h2>
+    <div class="container__absence">
+      <select (change)="onChange($event)">
+        <option hidden disabled selected value>Podaj przyczynę</option>
+        <option *ngFor="let absence of absenceList">{{ absence }}</option>
+      </select>
+    </div>
+    <div *ngIf="selectedOption === 'Inne'" class="container__other">
+      <input type="text" placeholder="Powód" />
+    </div>
+    <div class="container__date">
+      <div class="date__input">
+        <p>Od</p>
+        <input type="date" />
+      </div>
+      <div class="date__input">
+        <p>Do</p>
+        <input type="date" />
+      </div>
+    </div>
+    <button>Gotowe</button>
+  </div>
+</div>

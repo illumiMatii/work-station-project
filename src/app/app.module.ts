@@ -11,6 +11,7 @@ import { WorktimeComponent } from './worktime/worktime.component';
 import { AbsenceComponent } from './absence/absence.component';
 import { AdminComponent } from './admin/admin.component';
 import { HeaderComponent } from './header/header.component';
+import { AuthGuardService } from './service/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { HeaderComponent } from './header/header.component';
     HeaderComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, RouterModule],
-  providers: [{ provide: LOCALE_ID, useValue: 'pl' }],
+  providers: [{ provide: LOCALE_ID, useValue: 'pl' }, AuthGuardService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

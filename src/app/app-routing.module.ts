@@ -5,6 +5,7 @@ import { UserComponent } from './user/user.component';
 import { WorktimeComponent } from './worktime/worktime.component';
 import { AbsenceComponent } from './absence/absence.component';
 import { AdminComponent } from './admin/admin.component';
+import { AuthGuardService } from './service/auth-guard.service';
 
 const routes: Routes = [
   { path: 'home', component: LoginComponent },
@@ -12,9 +13,18 @@ const routes: Routes = [
   {
     path: ':username',
     component: UserComponent,
+    canActivate: [AuthGuardService],
     children: [
-      { path: 'work-time', component: WorktimeComponent },
-      { path: 'absence', component: AbsenceComponent },
+      {
+        path: 'work-time',
+        component: WorktimeComponent,
+        canActivate: [AuthGuardService],
+      },
+      {
+        path: 'absence',
+        component: AbsenceComponent,
+        canActivate: [AuthGuardService],
+      },
     ],
   },
   { path: 'admin', component: AdminComponent },

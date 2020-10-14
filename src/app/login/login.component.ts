@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     } else {
       event.preventDefault();
       this.invalidLogin = true;
-      this.errorStr = 'Wpisz swój login oraz hasło';
+      this.errorStr = 'Wpisz poprawny login oraz hasło';
     }
   }
 }

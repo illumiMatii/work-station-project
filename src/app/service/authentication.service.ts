@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 export class AuthenticationService {
   constructor(private router: Router) {}
 
-  authenticate(username, password) {
+  authenticate(username, password): boolean {
     if (username === username && password === 'password') {
       sessionStorage.setItem('username', username);
       return true;
@@ -16,12 +16,16 @@ export class AuthenticationService {
     }
   }
 
-  isUserLoggedIn() {
+  isUserLoggedIn(): boolean {
     return !(sessionStorage.getItem('username') === null);
   }
 
-  logout() {
+  logout(): void {
     sessionStorage.removeItem('username');
     this.router.navigate(['home']);
+  }
+
+  getCurrentUserName() {
+    return sessionStorage.getItem('username');
   }
 }

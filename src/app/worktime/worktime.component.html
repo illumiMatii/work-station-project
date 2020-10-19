@@ -14,26 +14,28 @@
     </div>
     <div *ngIf="selectedOption === 'inne'" class="worktime__other">
       <h3>Podaj godziny prac</h3>
-      <input #worktimeFrom type="text" placeholder="Od" />
-      <input #worktimeTo type="text" placeholder="Do" />
+      <input [(ngModel)]="workTimeFrom" type="text" placeholder="Od" />
+      <input [(ngModel)]="workTimeTo" type="text" placeholder="Do" />
       <button
         class="other__proceed"
-        (click)="checkInputs(worktimeFrom.value, worktimeTo.value, $event)"
+        (click)="checkInputs($event)"
       >
         Dodaj godziny
       </button>
-      <span class="error">{{ messageStr }}</span>
+      <span class="error">{{ errorStr }}</span>
     </div>
     <div class="worktime__switch">
       <input
         type="checkbox"
         id="switch"
         class="switch__input"
-        (click)="isHomeOffice($event)"
+        (click)="isHomeOffice()"
       />
       <label for="switch" class="switch__label">Switch</label>
       <span>Home Office</span>
     </div>
-    <button class="worktime__proceed">Gotowe</button>
+    <button class="worktime__proceed" (click)="sendForm($event)">Gotowe</button>
+    <span *ngIf="selectedOption === undefined" class="error">{{ errorFormStr }}</span>
+    <span *ngIf="selectedOption !== undefined" class="proceed">{{ correctFormStr }}</span>
   </div>
 </div>

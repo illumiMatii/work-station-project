@@ -21,7 +21,6 @@ export class AbsenceComponent implements OnInit {
 
   onChange(event) {
     this.selectedOption = event.target.value;
-    this.absenceList.push(this.selectedOption);
   }
 
   constructor() {}

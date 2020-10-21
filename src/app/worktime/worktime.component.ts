@@ -29,12 +29,6 @@ export class WorktimeComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  reload() {
-    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-    this.router.onSameUrlNavigation = 'reload';
-    this.router.navigate(['./'], { relativeTo: this.route });
-  }
-
   onChange(event) {
     this.selectedOption = event.target.value;
   }
@@ -61,9 +55,6 @@ export class WorktimeComponent implements OnInit {
       this.errorFormStr = 'Wybierz zmianę!';
     } else {
       this.correctFormStr = 'Formularz wysłany';
-      setTimeout(() => {
-        this.reload();
-      }, 3000);
     }
   }
 }

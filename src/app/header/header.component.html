@@ -3,8 +3,8 @@
       <h1>workStation</h1>
     </a>
     <ul class="header__list">
-      <li *ngIf="loginService.isUserLoggedIn()" [routerLink]="[this.username, 'work-time']">Czas Pracy</li>
-      <li *ngIf="loginService.isUserLoggedIn()" [routerLink]="[this.username, 'absence']">Nieobecności</li>
+      <li *ngIf="loginService.isUserLoggedIn()" [routerLink]="[loginService.getCurrentUserName(), 'work-time']">Czas Pracy</li>
+      <li *ngIf="loginService.isUserLoggedIn()" [routerLink]="[loginService.getCurrentUserName(), 'absence']">Nieobecności</li>
       <li *ngIf="loginService.isUserLoggedIn()">{{loginService.getCurrentUserName()}}</li>
       <li *ngIf="loginService.isUserLoggedIn()" (click)="loginService.logout()">wyloguj</li>
     </ul>

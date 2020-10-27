@@ -18,12 +18,36 @@ export class AbsenceComponent implements OnInit {
   ];
 
   selectedOption: string;
+  absenceReason: string;
+  errorOther: string;
+  errorFormStr: string;
+  correctFormStr: string;
+
+  constructor() {}
+
+  ngOnInit(): void {}
 
   onChange(event) {
     this.selectedOption = event.target.value;
   }
 
-  constructor() {}
+  checkInput() {
+    if (
+      this.absenceReason === undefined ||
+      this.absenceReason.match(/^ *$/) !== null
+    ) {
+      this.errorOther = 'Wpisz poprawny powód nieobecności';
+    } else {
+      this.absenceList.push(this.absenceReason);
+    }
+  }
 
-  ngOnInit(): void {}
+  sendForm(event) {
+    if (this.selectedOption === undefined) {
+      event.preventDefault();
+      this.errorFormStr = 'Wybierz zmianę!';
+    } else {
+      this.correctFormStr = 'Formularz wysłany';
+    }
+  }
 }

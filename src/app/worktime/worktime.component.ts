@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localePl from '@angular/common/locales/pl';
-import { ActivatedRoute, Router } from '@angular/router';
 
 registerLocaleData(localePl);
 
@@ -14,6 +13,7 @@ export class WorktimeComponent implements OnInit {
   today = Date.now();
 
   homeOffice: boolean = false;
+  isFormCorrect: boolean;
 
   selectedOption: string;
   errorStr: string;
@@ -25,11 +25,11 @@ export class WorktimeComponent implements OnInit {
 
   workChoices: string[] = ['od 7:30 do 15:30', 'od 8:30 do 16:30', 'inne'];
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor() {}
 
   ngOnInit(): void {}
 
-  onChange(event) {
+  onChange(event: any) {
     this.selectedOption = event.target.value;
   }
 
@@ -52,8 +52,16 @@ export class WorktimeComponent implements OnInit {
   sendForm(event) {
     if (this.selectedOption === undefined) {
       event.preventDefault();
+      this.isFormCorrect = false;
       this.errorFormStr = 'Wybierz zmianę!';
+    } else if (
+      this.selectedOption === 'inne' &&
+      (this.workTimeFrom === undefined || this.workTimeTo === undefined)
+    ) {
+      this.isFormCorrect = false;
+      this.errorFormStr = 'Wypełnij formularz poprawnie';
     } else {
+      this.isFormCorrect = true;
       this.correctFormStr = 'Formularz wysłany';
     }
   }

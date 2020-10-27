@@ -8,8 +8,9 @@
       </select>
     </div>
     <div *ngIf="selectedOption === 'Inne'" class="container__other">
-      <input type="text" placeholder="Powód" />
-      <button class="other__proceed">Zatwierdź</button>
+      <input type="text" placeholder="Powód" [(ngModel)]="absenceReason" />
+      <button class="other__proceed" (click)="checkInput()">Zatwierdź</button>
+      <span class="other__error">{{ errorOther }}</span>
     </div>
     <div class="container__date">
       <div class="date__input">
@@ -21,6 +22,6 @@
         <input type="date" />
       </div>
     </div>
-    <button>Gotowe</button>
+    <button class="main__proceed" (click)="sendForm($event)">Gotowe</button>
   </div>
 </div>

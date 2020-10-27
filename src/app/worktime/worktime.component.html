@@ -35,7 +35,7 @@
       <span>Home Office</span>
     </div>
     <button class="worktime__proceed" (click)="sendForm($event)">Gotowe</button>
-    <span *ngIf="selectedOption === undefined" class="error">{{ errorFormStr }}</span>
-    <span *ngIf="selectedOption !== undefined" class="proceed">{{ correctFormStr }}</span>
+    <span *ngIf="isFormCorrect === false" class="error">{{ errorFormStr }}</span>
+    <span *ngIf="isFormCorrect === true" class="proceed">{{ correctFormStr }}</span>
   </div>
 </div>

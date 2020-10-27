@@ -16,7 +16,7 @@
   flex-direction: column;
 }
 
-.main__container > button {
+.main__container > .main__proceed {
   margin-top: 10%;
   background-color: #2ecc71;
   border: none;
@@ -83,7 +83,9 @@ select,
 .container__other {
   margin-top: 15%;
   display: flex;
+  justify-content: center;
   flex-direction: column;
+  align-items: center;
 }
 
 .container__other > input {
@@ -100,7 +102,7 @@ select,
   background-color: #3498db;
   color: #ffffff;
   border-radius: 50px;
-  padding: 4px;
+  padding: 10px;
   cursor: pointer;
   outline: none;
 }

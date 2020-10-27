@@ -34,7 +34,7 @@
       <label for="switch" class="switch__label">Switch</label>
       <span>Home Office</span>
     </div>
-    <button class="worktime__proceed" (click)="sendForm($event)">Gotowe</button>
+    <button class="worktime__proceed" (click)="checkForm($event)">Gotowe</button>
     <span *ngIf="isFormCorrect === false" class="error">{{ errorFormStr }}</span>
     <span *ngIf="isFormCorrect === true" class="proceed">{{ correctFormStr }}</span>
   </div>

@@ -49,7 +49,7 @@ export class WorktimeComponent implements OnInit {
     }
   }
 
-  sendForm(event) {
+  checkForm(event) {
     if (this.selectedOption === undefined) {
       event.preventDefault();
       this.isFormCorrect = false;
